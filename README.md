@@ -1,5 +1,47 @@
 # ez-timer
-The easiest way to time a function call in Python.
+
+__The easiest way to time a code block in Python.__
+
+Quick Links:
+- [Installation](#Installation)
+- [Usage](#Usage)
+- [Overview](#Overview)
+
+## Overview
+`ez-timer` provides a single, easy to use API for timing function calls.
+
+```python
+with ez_timer() as timer:
+    1 + 1
+timer.result
+# 0.000001
+```
+
+You can also use the timer as a float directly:
+
+```python
+with ez_timer() as runtime:
+    1 + 1
+print(runtime + 1)
+# 1.000001
+```
+
+That is it.  That is the API.  Solves one problem, and solves it well.
+
+### Background
+When working on extensive profiling for an enterprise Python project I regularly found myself writing:
+
+```python
+start = time.time()
+# some code
+end = time.time()
+
+result = end - start
+# do something with result
+```
+
+While `timeit` exists, I found `timeit` to be heavy handed for what I needed in 90% of cases.
+This inspired me to create `ez-timer`.
 
 ## Installation
 ez-timer can be installed from pypi:
