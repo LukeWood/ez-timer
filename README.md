@@ -31,7 +31,7 @@ result = end - start
 # do something with result
 ```
 
-While `timeit` exists, I found `timeit` to be heavy handed for what I needed in 90% of cases.
+While `timeit` exists, I found `timeit` to be heavy handed for what I needed.
 This inspired me to create `ez-timer`.
 
 ## Installation
