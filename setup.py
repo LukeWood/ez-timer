@@ -29,6 +29,7 @@ setup(
     description="The simplest way to time a block of code.",
     version="0.0.1",
     long_description=README,
+    long_description_content_type="text/markdown",
     url="https://github.com/lukewood/ez-timer",
     author="Luke Wood",
     author_email="lukewoodcs@gmail.com",
