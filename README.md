@@ -17,15 +17,6 @@ timer.result
 # 0.000001
 ```
 
-You can also use the timer as a float directly:
-
-```python
-with ez_timer() as runtime:
-    1 + 1
-print(runtime + 1)
-# 1.000001
-```
-
 That is it.  That is the API.  Solves one problem, and solves it well.
 
 ### Background
