@@ -16,10 +16,19 @@
 
 from setuptools import find_packages
 from setuptools import setup
+import pathlib
+
+# The directory containing this file
+HERE = pathlib.Path(__file__).parent
+
+# The text of the README file
+README = (HERE / "README.md").read_text()
 
 setup(
     name="ez-timer",
     description="The simplest way to time a block of code.",
+    version="0.0.1",
+    long_description=README,
     url="https://github.com/lukewood/ez-timer",
     author="Luke Wood",
     author_email="lukewoodcs@gmail.com",
