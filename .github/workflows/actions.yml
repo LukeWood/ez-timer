@@ -35,7 +35,7 @@ jobs:
         pip install -e ".[tests]" --progress-bar off --upgrade
     - name: Test with pytest
       run: |
-        pytest keras_cv/
+        pytest ez_timer/
   format:
     name: Check the code format
     runs-on: ubuntu-latest
