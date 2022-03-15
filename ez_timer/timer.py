@@ -2,8 +2,6 @@ import time
 
 
 class Timer:
-    """ """
-
     def __init__(self):
         self.start_time = None
         self.end_time = None
@@ -17,4 +15,8 @@ class Timer:
 
     @property
     def result(self):
+        if self.start_time is None or self.end_time is None:
+            raise RuntimeError(
+                "Attempting to use timer before timing context is exited."
+            )
         return self.end_time - self.start_time

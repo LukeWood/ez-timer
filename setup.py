@@ -14,9 +14,10 @@
 
 """Setup script."""
 
+import pathlib
+
 from setuptools import find_packages
 from setuptools import setup
-import pathlib
 
 # The directory containing this file
 HERE = pathlib.Path(__file__).parent
