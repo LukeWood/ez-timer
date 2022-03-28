@@ -2,16 +2,26 @@ import time
 
 
 class Timer:
-    def __init__(self):
+    def __init__(self, performance=True):
         self.start_time = None
         self.end_time = None
+        self._elasped = 0.0
+        self._performance = performance
 
     def __enter__(self):
-        self.start_time = time.perf_counter()
+        if self._performance:
+            self.start_time = time.perf_counter()
+        else:
+            self.start_time = time.time()
+
         return self
 
     def __exit__(self, exc_type, exc_value, exc_traceback):
-        self.end_time = time.perf_counter()
+        if self._performance:
+            self.end_time = time.perf_counter()
+        else:
+            self.end_time = time.time()
+        self._elasped = self.end_time - self.start_time
 
     @property
     def result(self):
@@ -19,4 +29,16 @@ class Timer:
             raise RuntimeError(
                 "Attempting to use timer before timing context is exited."
             )
-        return self.end_time - self.start_time
+        return self._elasped
+
+    def __float__(self):
+        return float(self._elasped)
+
+    def __coerce__(self, other):
+        return (float(self), other)
+
+    def __str__(self):
+        return str(float(self))
+
+    def __repr__(self):
+        return str(float(self))
