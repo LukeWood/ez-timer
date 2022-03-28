@@ -1,11 +1,12 @@
 import time
 
 class Timer(float):
-    def __init__(self, performance=True):
+    def __init__(self, performance=True, verbose = False):
         self.start_time = None
         self.end_time = None
         self._elasped = 0.0
         self._performance = performance
+        self.verbose = verbose
 
     def __enter__(self):
         if self._performance:
@@ -21,6 +22,9 @@ class Timer(float):
         else:
             self.end_time = time.time()
         self._elasped = self.end_time - self.start_time
+
+        if self.verbose:
+            print('Time elasped: %fs' % self._elasped)
 
     @property
     def result(self):
