@@ -1,7 +1,6 @@
 import time
 
-
-class Timer:
+class Timer(float):
     def __init__(self, performance=True):
         self.start_time = None
         self.end_time = None
@@ -33,9 +32,6 @@ class Timer:
 
     def __float__(self):
         return float(self._elasped)
-
-    def __coerce__(self, other):
-        return (float(self), other)
 
     def __str__(self):
         return str(float(self))
